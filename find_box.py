@@ -36,7 +36,7 @@ class find_box:
             rectangle.append([[x,y], [x+w,y], [x+w,y+h], [x,y+h], [x,y]])
         return rectangle
     
-    def find_box(self):
+    def box(self):
         img = cv2.imread(self.name)
         h, w = img.shape[:2]
         # Convert image to grayscale and invert color
