@@ -16,9 +16,9 @@ def box_detection(input_dir, output_dir):
     for i in f_name:
         img = os.path.join(input_dir, i)
         fb = find_box.find_box(img)
-        img, contours = fb.box()
+        img, boxes = fb.box()
         cv2.imwrite(os.path.join(output_dir, i), img)
-        jd = convert_json(contours)
+        jd = convert_json(boxes)
         with open(os.path.join(output_dir, i[:-4]+'.json'), 'w') as f:
             json.dump(jd, f)
 
