@@ -3,7 +3,7 @@ import os
 import json
 import argparse
 import cv2
-import box
+import find_box
 
 def box_detection(input_dir, output_dir):
     # Implement your logic to detect boxes here.
@@ -15,8 +15,8 @@ def box_detection(input_dir, output_dir):
             f_name.append(item)
     for i in f_name:
         img = os.path.join(input_dir, i)
-        fb = box.find_box(img)
-        img, contours = fb.find_box()
+        fb = find_box.find_box(img)
+        img, contours = fb.box()
         cv2.imwrite(os.path.join(output_dir, i), img)
         jd = convert_json(contours)
         with open(os.path.join(output_dir, i[:-4]+'.json'), 'w') as f:
