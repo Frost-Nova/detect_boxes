@@ -3,10 +3,10 @@ from matplotlib import pyplot as plt
 
 class find_box:
 
-    def __init__(self, filename, binary_threshold=200, min_area=5000):
+    def __init__(self, filename, binary_threshold=200, structure_size=40, min_area=5000):
         self.name = filename
-        self.structure_size = 40
         self.binary_threshold = binary_threshold
+        self.structure_size = structure_size
         self.min_area = min_area
 
     # Using erosion followed by dilation to find table grids
